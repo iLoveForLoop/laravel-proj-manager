@@ -12,6 +12,10 @@
                     value="{{ $project->project_name }}">
             </div>
             <div class="mb-3">
+                <label for="descrip" class="form-label text-left">Description</label>
+                <input name='descrip' type="text" class="form-control" id="title" placeholder="Enter a short description">
+            </div>
+            <div class="mb-3">
                 <label for="start_date" class="form-label">Start Date</label>
                 <input name='start_date' type="date" class="form-control" id="start_date"
                     value="{{ $project->start_date }}">

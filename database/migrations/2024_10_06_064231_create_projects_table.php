@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('project_name', 255);
+            $table->string('descrip', 255);
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->string('status', 50)->nullable();

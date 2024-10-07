@@ -31,6 +31,7 @@ class ProjectsController extends Controller
     {
         $project = new Projects();
         $project->project_name = $request->project_name;
+        $project->descrip = $request->descrip;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;
         $project->status = 'Ongoing';
