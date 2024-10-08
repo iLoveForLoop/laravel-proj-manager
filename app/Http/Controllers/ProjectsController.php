@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Projects;
+use App\Models\TeamMember;
 
 class ProjectsController extends Controller
 {
@@ -45,9 +46,10 @@ class ProjectsController extends Controller
      */
     public function show(string $id)
     {
+        $members = TeamMember::all();
         $projects = Projects::all();
         $project = Projects::findOrFail($id);
-        return view('projects.show', ['project'=> $project, 'projects' => $projects]);
+        return view('projects.show', compact('projects','project','members'));
 
     }
 
@@ -70,7 +72,9 @@ class ProjectsController extends Controller
         $project->project_name = $request->project_name;
         $project->start_date = $request->start_date;
         $project->end_date = $request->end_date;
-        $project->status = 'Edited';
+        $project->descrip = $request->descrip;
+        $project->status = $request->status;
+        error_log($project->status);
         $project->save();
 
         return redirect()->route('projects.index')->with('success','Edited Successfully');
