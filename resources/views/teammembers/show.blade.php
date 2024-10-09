@@ -1,5 +1,5 @@
 <div class="container p-5 bg-info">
-    <h1>Project Members</h1>
+    <h4>Project Members</h4>
 
     @foreach ($teammembers as $data)
         @if ($data->project_id == $p_id)

@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projects extends Model
 {
+    public function team_members(){
+        return $this->hasMany(TeamMember::class);
+    }
+
     use HasFactory;
 }

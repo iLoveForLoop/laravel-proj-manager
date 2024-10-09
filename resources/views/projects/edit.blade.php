@@ -34,7 +34,7 @@
                         @php
                             $secondOption = $project->status == 'Ongoing' ? 'Completed' : 'Ongoing';
                         @endphp
-                        <label for="status" class="form-label text-left">Status</label>
+                        <label for="status" class="form-label text-left">Update Status</label>
                         <select class="form-select" aria-label="Default select example" name="status">
                             <option selected value="{{ $project->status }}">{{ $project->status }}</option>
                             <option value="{{ $secondOption }}">{{ $secondOption }}</option>

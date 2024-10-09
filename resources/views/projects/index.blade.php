@@ -10,7 +10,7 @@
     <div class="container poppins">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3 mb-sm-0 my-3">
-                <div class="card" style="height: 300px;">
+                <div class="card box" style="height: 300px;">
                     <a class="d-flex flex-column justify-content-center align-items-center card-body text-decoration-none text-dark border border-dark border-2 rounded"
                         href="{{ route('projects.create') }}">
                         <h3>Add new project</h3>
@@ -38,7 +38,7 @@
                         }
 
                     @endphp
-                    <div class="card {{ $borderColor }} " style="height: 300px;">
+                    <div class="card {{ $borderColor }} box" style="height: 300px;">
                         <a class="d-flex flex-column justify-content-between card-body text-decoration-none"
                             href="{{ route('projects.show', $project->id) }}">
                             <div>
@@ -54,13 +54,14 @@
                             </div>
 
                             <div class="p-3">
-                                <a class="btn btn-primary" href="{{ route('projects.edit', $project->id) }}"
-                                    style="width: 30%"> Edit</a>
+                                <a class="btn border border-2 border-dark custom-hover-info"
+                                    href="{{ route('projects.edit', $project->id) }}" style="width: 30%"> Edit</a>
                                 <form class="d-inline" action="{{ route('projects.destroy', $project->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" style="width: 30%">Delete</button>
+                                    <button type="submit" class="btn border border-2 border-dark custom-hover-danger"
+                                        style="width: 30%">Delete</button>
                                 </form>
                             </div>
 
@@ -68,18 +69,32 @@
                     </div>
                 </div>
             @endforeach
-
-
         </div>
     </div>
+
+    <style>
+        .box {
+            transition: .2s ease-in-out;
+        }
+
+        .box:hover {
+            scale: 103%;
+            /* background-color: #ffc107; */
+        }
+
+        .custom-hover-danger:hover {
+            background-color: #dc3545;
+            color: #000000;
+            border-color: #dc3545;
+
+
+        }
+
+        .custom-hover-info:hover {
+            background-color: #0dcaf0;
+            color: #000000;
+            border-color: #004085;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 @endsection
-
-<style>
-    hr {
-        border: 3px black
-    }
-
-    .smaller {
-        font-size: 15px
-    }
-</style>

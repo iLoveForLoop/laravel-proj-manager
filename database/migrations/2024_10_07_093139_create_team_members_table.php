@@ -13,10 +13,10 @@ class CreateTeamMembersTable extends Migration
             $table->string('first_name', 100);
             $table->string('last_name', 100);
             $table->string('email', 255)->unique();
-            $table->unsignedBigInteger('project_id')->nullable();
+            $table->unsignedBigInteger('project_id');
             $table->timestamps();
 
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
