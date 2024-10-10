@@ -12,7 +12,7 @@ class CreateTeamMembersTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->string('email', 255)->unique();
+            $table->string('email', 255);
             $table->unsignedBigInteger('project_id');
             $table->timestamps();
 

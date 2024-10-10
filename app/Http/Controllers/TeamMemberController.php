@@ -63,7 +63,10 @@ class TeamMemberController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+        $member = TeamMember::findOrFail($id);
+
+        return view("teammembers.edit", compact('member'));
     }
 
     /**
@@ -71,7 +74,14 @@ class TeamMemberController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $teammember = TeamMember::find($id);
+        $projectId = $teammember->project_id;
+        $teammember->first_name = $request->first_name;
+        $teammember->last_name = $request->last_name;
+        $teammember->email = $request->email;
+        $teammember->save();
+        return redirect()->route('projects.show', ['project' => $projectId])->with('success', 'Added Successfully');
     }
 
     /**
@@ -79,6 +89,11 @@ class TeamMemberController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $teammember = TeamMember::findOrFail($id);
+        $teammember->delete();
+        return redirect()->back()->with('delete','Deleted Successfully');
+
+
     }
 }
