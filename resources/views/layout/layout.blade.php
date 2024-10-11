@@ -32,6 +32,15 @@
             font-weight: 600;
             font-style: normal;
         }
+
+        .box {
+            transition: .2s ease-in-out;
+        }
+
+        .box:hover {
+            scale: 103%;
+            /* background-color: #ffc107; */
+        }
     </style>
 </head>
 
@@ -40,7 +49,11 @@
     @yield('projects')
     @yield('projects-show')
     @yield('projects-edit')
+    @yield('projects-create')
+
     @yield('member-create')
+    @yield('member-edit')
+    @yield('member-show')
 
 
 

@@ -73,15 +73,6 @@
     </div>
 
     <style>
-        .box {
-            transition: .2s ease-in-out;
-        }
-
-        .box:hover {
-            scale: 103%;
-            /* background-color: #ffc107; */
-        }
-
         .custom-hover-danger:hover {
             background-color: #dc3545;
             color: #000000;

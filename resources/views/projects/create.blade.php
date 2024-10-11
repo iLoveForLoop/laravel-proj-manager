@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('projects-show')
+@section('projects-create')
     <div class="container p-5 poppins">
         <div class="row d-flex justify-content-center">
             <div class="col-6 p-5 border border-3 border-secondary">
