@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Projects;
 use App\Models\TeamMember;
+use App\Models\Task;
 
 class ProjectsController extends Controller
 {
@@ -47,9 +48,10 @@ class ProjectsController extends Controller
     public function show(string $id)
     {
         $members = TeamMember::all();
+        $tasks = Task::all();
         $projects = Projects::all();
         $project = Projects::findOrFail($id);
-        return view('projects.show', compact('projects','project','members'));
+        return view('projects.show', compact('projects','project','members', 'tasks'));
 
     }
 

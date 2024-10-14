@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -11,7 +12,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        // $tasks = Task::all();
+        // return view("tasks.index", compact("tasks"));
     }
 
     /**
@@ -19,7 +21,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view("tasks.create");
     }
 
     /**
@@ -27,7 +29,10 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tasks = Task::create($request->only('project_id', 'task_name', 'description', 'due_date' ));
+
+        return redirect()->route("projects.show", ["project" => $tasks->project_id])->with("success","Task Added Successfully");
+
     }
 
     /**
@@ -35,7 +40,8 @@ class TaskController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $task = Task::find($id);
+        return view("tasks.show", compact("task"));
     }
 
     /**
@@ -43,7 +49,9 @@ class TaskController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $task = Task::find($id);
+
+        return view("tasks.edit", compact("task"));
     }
 
     /**
@@ -51,7 +59,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $task = Task::find($id);
+        $task->update($request->only("task_name", "description", "due_data"));
+        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("success","Edit Successfull");
     }
 
     /**
@@ -59,6 +69,8 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("delete","Deleted Successfully");
     }
 }

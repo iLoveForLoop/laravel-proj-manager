@@ -18,7 +18,7 @@
         </header>
         <div class="poppins container">
             <div class="row" style="height: 87vh">
-                <div class="col-6 py-3">
+                <div class="col-4 py-3">
                     <h4 class="my-1">Project Name:</h4>
                     <hr>
                     <h4 class="fw-light ms-3">{{ $project->project_name }}</h4>
@@ -40,6 +40,7 @@
                     <h5><span class="fw-light ms-3">{{ $project->end_date }}</h5>
                 </div>
                 @include('teammembers.index')
+                @include('tasks.index')
             </div>
         </div>
     </div>

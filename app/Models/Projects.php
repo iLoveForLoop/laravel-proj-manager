@@ -11,5 +11,9 @@ class Projects extends Model
         return $this->hasMany(TeamMember::class);
     }
 
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
     use HasFactory;
 }
