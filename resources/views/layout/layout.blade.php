@@ -33,6 +33,12 @@
             font-style: normal;
         }
 
+        .poppins-regular {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
         .box {
             transition: .2s ease-in-out;
         }

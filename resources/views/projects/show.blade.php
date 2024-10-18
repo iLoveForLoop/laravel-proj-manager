@@ -13,7 +13,7 @@
                     </svg>
                 </a>
 
-                <h1 class="m-0">PROJECT INFORMATION</h1>
+                <h1 class="m-0 fs-1">PROJECT INFORMATION</h1>
             </div>
         </header>
         <div class="poppins container">

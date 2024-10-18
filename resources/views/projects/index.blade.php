@@ -3,14 +3,14 @@
 @section('projects')
     <header class=" bg-dark text-light poppins" style="width: 100%">
         <div class="container py-4">
-            <h1 class="m-0">PROJECTS</h1>
+            <h1 class="m-0 fs-1">PROJECTS</h1>
         </div>
 
     </header>
     <div class="container poppins">
         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3 mb-sm-0 my-3">
-                <div class="card box" style="height: 300px;">
+                <div class="card box shadow" style="height: 300px;">
                     <a class="d-flex flex-column justify-content-center align-items-center card-body text-decoration-none text-dark border border-dark border-2 rounded"
                         href="{{ route('projects.create') }}">
                         <h3>Add new project</h3>
@@ -38,7 +38,7 @@
                         }
 
                     @endphp
-                    <div class="card {{ $borderColor }} box" style="height: 300px;">
+                    <div class="card {{ $borderColor }} box shadow" style="height: 300px;">
                         <a class="d-flex flex-column justify-content-between card-body text-decoration-none"
                             href="{{ route('projects.show', $project->id) }}">
                             <div>

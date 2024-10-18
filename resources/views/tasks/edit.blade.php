@@ -4,7 +4,7 @@
     <div class="container p-5 poppins">
         <div class="row d-flex justify-content-center">
             <div class="col-6 p-5 border border-3 border-secondary">
-                <h1 class="text-center">Create Task</h1>
+                <h1 class="text-center">Edit Task</h1>
                 <form action="{{ route('tasks.update', $task->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -24,7 +24,7 @@
                             id="due_date" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-md py-2 px-5">Add</button>
+                        <button type="submit" class="btn btn-success btn-md py-2 px-5">Save</button>
                     </div>
 
                 </form>

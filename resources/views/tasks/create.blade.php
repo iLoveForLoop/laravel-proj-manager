@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label text-left">Task Name</label>
                         <input name='task_name' type="text" class="form-control" id="title"
-                            placeholder="Enter project name" required>
+                            placeholder="Enter a task" required>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label text-left">Description</label>
