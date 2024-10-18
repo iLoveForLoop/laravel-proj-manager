@@ -47,6 +47,21 @@
             scale: 103%;
             /* background-color: #ffc107; */
         }
+
+        .hover-effect {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .arrow-svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-effect:hover .arrow-svg {
+            transform: translateX(-10px);
+
+        }
     </style>
 </head>
 
@@ -64,6 +79,11 @@
     @yield('task-create')
     @yield('task-show')
     @yield('task-edit')
+
+    @yield('assignment')
+    @yield('assignment-create')
+    @yield('assignment-show')
+    @yield('assignment-edit')
 
 
 
