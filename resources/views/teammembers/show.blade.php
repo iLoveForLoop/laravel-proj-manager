@@ -34,7 +34,7 @@
 
             </div>
 
-            <div class="mt-5">
+            {{-- <div class="mt-5">
                 <i class="bi bi-chevron-double-down fs-1"></i>
             </div>
             <div class="mt-2">
@@ -42,32 +42,34 @@
             </div>
         </div>
     </div>
-    <div class="bg-dark" style="height: 100vh"></div>
-@endsection
+    <div class="bg-dark" style="height: 100vh">
+
+    </div> --}}
+        @endsection
 
 
-<style>
-    .hover-effect {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-    }
+        <style>
+            .hover-effect {
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+            }
 
-    .arrow-svg {
-        transition: transform 0.3s ease;
-    }
+            .arrow-svg {
+                transition: transform 0.3s ease;
+            }
 
-    .hover-effect:hover .arrow-svg {
-        transform: translateX(-10px);
+            .hover-effect:hover .arrow-svg {
+                transform: translateX(-10px);
 
-    }
+            }
 
-    .big {
-        font-size: 11em
-    }
+            .big {
+                font-size: 11em
+            }
 
-    .hide-scrollbar {
-        overflow: auto;
-        scrollbar-width: none;
-    }
-</style>
+            .hide-scrollbar {
+                overflow: auto;
+                scrollbar-width: none;
+            }
+        </style>

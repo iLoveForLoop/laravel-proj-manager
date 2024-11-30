@@ -3,7 +3,7 @@
 @section('task-create')
     <div class="container p-5 poppins">
         <div class="row d-flex justify-content-center">
-            <div class="col-6 p-5 border border-3 border-secondary">
+            <div class="col-6 p-5 shadow-lg border border-2  border-dark">
                 <h1 class="text-center">Create Task</h1>
                 <form action="{{ route('tasks.store') }}" method="POST">
                     @csrf

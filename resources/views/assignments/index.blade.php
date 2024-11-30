@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('assignment')
-    <div class="d-flex flex-column" style="height: 100vh">
+    <div class="d-flex flex-column poppins" style="height: 100vh">
         <header class=" bg-dark text-light poppins" style="width: 100%">
             <div class="container d-flex py-4 align-items-center justify-content-between">
                 <div class="d-flex">
@@ -26,8 +26,8 @@
             <table class="table table-striped table-hover table-bordered align-middle fs-5">
                 <thead class="table-dark">
                     <tr>
-                        <th class="text-center">Task Name</th>
                         <th class="text-center">Team Member Name</th>
+                        <th class="text-center">Task Name</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -35,8 +35,8 @@
                     @if ($assignments->isNotEmpty())
                         @foreach ($assignments as $assignment)
                             <tr>
-                                <td>{{ $assignment->task->task_name }}</td>
                                 <td>{{ $assignment->teamMember->first_name }} {{ $assignment->teamMember->last_name }}</td>
+                                <td>{{ $assignment->task->task_name }}</td>
                                 <td class="text-center">
                                     <form class="m-0"
                                         action="{{ route('assignments.destroy', $assignment->id) }}?project_id={{ $project_id }}"
@@ -52,8 +52,8 @@
                     @else
                         <tr>
                             <td>No assignments yet.</td>
-                            <td>No assignments yet.</td>
-                            <td>No assignments yet.</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                     @endif
 
