@@ -3,6 +3,7 @@
 @section('task-create')
     <div class="container p-5 poppins">
         <div class="row d-flex justify-content-center">
+            <a class="text-decoration-none text-dark" href="javascript:history.back()"><h1 class="m-0 text-start fw-bold"><i class="bi bi-arrow-left"></i></h1></a>
             <div class="col-6 p-5 shadow-lg border border-2  border-dark">
                 <h1 class="text-center">Create Task</h1>
                 <form action="{{ route('tasks.store') }}" method="POST">

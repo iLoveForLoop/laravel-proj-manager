@@ -53,14 +53,15 @@
                                 <p class="card-text">{{ $project->descrip }}</p>
                             </div>
 
-                            <div class="p-3">
-                                <a class="btn border border-2 border-dark custom-hover-info"
+                            <div class="p-3" >
+                                <!--Comment-->
+                                <a class="btn border border-2 border-dark custom-hover-info rounded-pill"
                                     href="{{ route('projects.edit', $project->id) }}" style="width: 30%"> Edit</a>
                                 <form class="d-inline" action="{{ route('projects.destroy', $project->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn border border-2 border-dark custom-hover-danger"
+                                    <button type="submit" class="btn border border-2 border-dark custom-hover-danger rounded-pill"
                                         style="width: 30%">Delete</button>
                                 </form>
                             </div>

@@ -1,8 +1,9 @@
 @extends('layout.layout')
 
 @section('assignment')
-    <div class="container py-5 poppins d-flex  justify-content-center align-items-center" style="height: 100vh">
+    <div class="container poppins d-flex justify-content-center align-items-center" style="height: 100vh">
         <div class="row justify-content-center w-100">
+            <a class="text-decoration-none text-dark" href="javascript:history.back()"><h1 class="m-0 text-start fw-bold"><i class="bi bi-arrow-left"></i></h1></a>
             <div class="col-md-6 shadow-lg p-4 rounded border border-dark border-2">
                 <h1 class="text-center mb-4 text-dark">Assign Task</h1>
                 <form action="{{ route('assignments.store') }}" method="POST">

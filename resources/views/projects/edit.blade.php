@@ -3,8 +3,9 @@
 
 
 @section('projects-edit')
-    <div class="container p-5 poppins">
+    <div class="container p-5 pt-3 poppins">
         <div class="row d-flex justify-content-center">
+            <a class="text-decoration-none text-dark" href="javascript:history.back()"><h1 class="m-0 text-start fw-bold"><i class="bi bi-arrow-left"></i></h1></a>
             <div class="col-6 p-5 border border-3 border-secondary">
                 <h1 class="text-center">Edit Project</h1>
                 <form action="{{ route('projects.update', $project->id) }}" method="POST">

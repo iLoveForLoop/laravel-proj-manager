@@ -3,6 +3,7 @@
 @section('member-create')
     <div class="container p-5 poppins">
         <div class="row d-flex justify-content-center">
+            <a class="text-decoration-none text-dark" href="javascript:history.back()"><h1 class="m-0 text-start fw-bold"><i class="bi bi-arrow-left"></i></h1></a>
             <div class="col-6 shadow-lg border border-2  border-dark p-5">
                 <h1 class="text-center">Add Member</h1>
                 <form action="{{ route('teammembers.store') }}" method="POST">

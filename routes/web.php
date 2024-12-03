@@ -13,4 +13,4 @@ Route::get('/', function () {
 Route::resource('projects', ProjectsController::class);
 Route::resource('teammembers', TeamMemberController::class);
 Route::resource('tasks', TaskController::class);
-Route::resource('assignments', AssignmentController::class);
+Route::resource('assignments', AssignmentController::class); 
