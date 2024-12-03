@@ -61,7 +61,7 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $task->update($request->only("task_name", "description", "due_data"));
-        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("success","Edit Successfull");
+        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("success","Updated Successfully!");
     }
 
     /**
@@ -71,6 +71,6 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $task->delete();
-        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("delete","Deleted Successfully");
+        return redirect()->route("projects.show", ["project"=> $task->project_id])->with("delete","Deleted Successfully!");
     }
 }

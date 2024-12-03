@@ -1,6 +1,44 @@
 @extends('layout.layout')
 
 @section('projects-show')
+    @php
+        $alertStatus = '';
+        $alertMessage = '';
+        if (session()->has('success')) {
+            $alertStatus = 'success';
+            $alertMessage = session('success');
+        } elseif (session()->has('delete')) {
+            $alertStatus = 'danger';
+            $alertMessage = session('delete');
+        }
+
+    @endphp
+
+    @if ($alertStatus !== '')
+        <div class="w-100 position-fixed d-flex justify-content-end align-items-center px-5" style="height: 15vh"
+            id="alertDiv">
+            <div class="alert alert-{{ $alertStatus }} position-fixed poppins fw-light fade-in" role="alert" id="alert-box">
+                {{ $alertMessage }}
+            </div>
+        </div>
+    @endif
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const alertBox = document.getElementById("alert-box");
+            const alertDiv = document.getElementById("alertDiv")
+            if (alertBox) {
+                console.log('reached')
+                setTimeout(() => {
+                    alertBox.classList.add("fade-out");
+                    setTimeout(() => {
+                        alertDiv.classList.add("hide")
+                    }, 1000);
+                }, 1500);
+            }
+        });
+    </script>
+
     <div style="height: 100vh">
         <header class=" bg-dark text-light poppins" style="width: 100%">
             <div class="container d-flex py-4 align-items-center justify-content-between">
@@ -51,8 +89,44 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .hide {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
 @endsection
-
-<style>
-
-</style>

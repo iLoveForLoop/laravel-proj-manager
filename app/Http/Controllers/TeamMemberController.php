@@ -43,7 +43,7 @@ class TeamMemberController extends Controller
 
     $teammembers->save();
 
-    return redirect()->route('projects.show', ['project' => $id])->with('success', 'Added Successfully');
+    return redirect()->route('projects.show', ['project' => $id])->with('success', 'Member Added Successfully!');
 }
 
 
@@ -81,7 +81,7 @@ class TeamMemberController extends Controller
         $teammember->last_name = $request->last_name;
         $teammember->email = $request->email;
         $teammember->save();
-        return redirect()->route('projects.show', ['project' => $projectId])->with('success', 'Added Successfully');
+        return redirect()->route('projects.show', ['project' => $projectId])->with('success', 'Updated Successfully!');
     }
 
     /**
@@ -92,7 +92,7 @@ class TeamMemberController extends Controller
 
         $teammember = TeamMember::findOrFail($id);
         $teammember->delete();
-        return redirect()->back()->with('delete','Deleted Successfully');
+        return redirect()->back()->with('delete','Deleted Successfully!');
 
 
     }

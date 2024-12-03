@@ -1,6 +1,40 @@
 @extends('layout.layout')
 
 @section('projects')
+    @php
+        $alertStatus = '';
+        $alertMessage = '';
+        if (session()->has('success')) {
+            $alertStatus = 'success';
+            $alertMessage = session('success');
+        } elseif (session()->has('delete')) {
+            $alertStatus = 'danger';
+            $alertMessage = session('delete');
+        }
+
+    @endphp
+
+    @if ($alertStatus !== '')
+        <div class="w-100 position-fixed d-flex justify-content-end align-items-center px-5" style="height: 15vh">
+            <div class="alert alert-{{ $alertStatus }} position-fixed poppins fw-light fade-in" role="alert" id="alert-box">
+                {{ $alertMessage }}
+            </div>
+        </div>
+    @endif
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const alertBox = document.getElementById("alert-box");
+            if (alertBox) {
+                setTimeout(() => {
+                    alertBox.classList.add("fade-out");
+                }, 2000);
+            }
+        });
+    </script>
+
+
+
     <header class=" bg-dark text-light poppins" style="width: 100%">
         <div class="container py-4">
             <h1 class="m-0 fs-1">PROJECTS</h1>
@@ -53,7 +87,7 @@
                                 <p class="card-text">{{ $project->descrip }}</p>
                             </div>
 
-                            <div class="p-3" >
+                            <div class="p-3">
                                 <!--Comment-->
                                 <a class="btn border border-2 border-dark custom-hover-info rounded-pill"
                                     href="{{ route('projects.edit', $project->id) }}" style="width: 30%"> Edit</a>
@@ -61,7 +95,8 @@
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn border border-2 border-dark custom-hover-danger rounded-pill"
+                                    <button type="submit"
+                                        class="btn border border-2 border-dark custom-hover-danger rounded-pill"
                                         style="width: 30%">Delete</button>
                                 </form>
                             </div>
@@ -87,6 +122,43 @@
             color: #000000;
             border-color: #004085;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out forwards;
+        }
+
+        .hide {
+            visibility: hidden;
+            opacity: 0;
         }
     </style>
 @endsection

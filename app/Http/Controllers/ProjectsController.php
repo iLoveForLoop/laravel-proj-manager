@@ -39,7 +39,7 @@ class ProjectsController extends Controller
         $project->status = 'Ongoing';
         $project->save();
 
-        return redirect()->route('projects.index')->with('success','Successfully Created Project');
+        return redirect()->route('projects.index')->with('success','Successfully Created Project!');
     }
 
     /**
@@ -79,7 +79,7 @@ class ProjectsController extends Controller
         error_log($project->status);
         $project->save();
 
-        return redirect()->route('projects.index')->with('success','Edited Successfully');
+        return redirect()->route('projects.index')->with('success','Edited Successfully!');
     }
 
     /**
@@ -89,6 +89,6 @@ class ProjectsController extends Controller
     {
         $project = Projects::findOrFail($id);
         $project->delete();
-        return redirect()->back()->with('delete','Deleted Successfully');
+        return redirect()->back()->with('delete','Deleted Successfully!');
     }
 }

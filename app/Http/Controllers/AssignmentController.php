@@ -88,7 +88,7 @@ class AssignmentController extends Controller
         $assignments = $assignments->get();
 
 
-        return view('assignments.index', compact('assignments', 'project_id'));
+        return redirect()->route('assignments.index', ['project_id' => $project_id])->with('success', 'Added Succesfully');
     }
 
     /**
@@ -138,6 +138,9 @@ class AssignmentController extends Controller
         }
 
         $assignments = $assignments->get();
-        return view('assignments.index', compact('assignments', 'project_id'));
+
+        return redirect()->route('assignments.index', ['project_id' => $project_id])
+    ->with('delete', 'Deleted Successfully!');
+
     }
 }
