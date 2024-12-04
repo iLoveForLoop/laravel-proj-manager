@@ -28,7 +28,7 @@
             if (alertBox) {
                 setTimeout(() => {
                     alertBox.classList.add("fade-out");
-                }, 2000);
+                }, 1500);
             }
         });
     </script>
